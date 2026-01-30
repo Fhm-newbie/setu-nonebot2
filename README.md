@@ -4,7 +4,7 @@
 
 
 
-#### 详细信息看[wiki](https://github.com/yuban10703/setu-nonebot2/wiki) (还没写完,有问题直接提issue)
+#### 详细信息看[wiki](https://github.com/yuban10703/setu-nonebot2/wiki) 
 
 
 
@@ -19,10 +19,3 @@
 #### 演示
 
 <img src="https://cdn.jsdelivr.net/gh/yuban10703/BlogImgdata/img/IMG_20210717_223649.jpg" alt="IMG_20210717_223649" style="zoom: 25%;" />
-
-
-
-
-#### 投食通道
-
-<img src="https://cdn.jsdelivr.net/gh/yuban10703/BlogImgdata/img/支付宝收款码.jpg" alt="Drawing" width="170px" /><img src="https://cdn.jsdelivr.net/gh/yuban10703/BlogImgdata/img/QQ收款码.png" alt="Drawing" width="170px" /><img src="https://cdn.jsdelivr.net/gh/yuban10703/BlogImgdata/img/微信赞赏码.png" alt="Drawing" width="170px" />
