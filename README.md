@@ -1,6 +1,7 @@
 # [nonebot2](https://github.com/nonebot/nonebot2)的色图姬插件
 
 本项目是[opq-osc/OPQ-SetuBot](https://github.com/opq-osc/OPQ-SetuBot)的色图插件移植的 
+（原作者大佬不更新了自己尝试瞎改一下，大部分问题解决可以到原作者仓库的issue里找到）
 
 
 
