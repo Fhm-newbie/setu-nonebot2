@@ -212,7 +212,7 @@ class Setu:
             if data := await freqLimit(self.QQG, self.config, self.getSetuConfig):  # 触发频率限制
                 freqConfig = data[0]
                 data_tmp = data[1]
-                self.send(MessageSegment.text(
+                await self.send(MessageSegment.text(
                     self.config.replyMsg.freqLimit.format(
                         time=freqConfig.refreshTime,
                         limitCount=freqConfig.limitCount,
