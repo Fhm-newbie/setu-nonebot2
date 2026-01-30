@@ -36,32 +36,25 @@ callsetu = on_regex('来(.*?)[点丶、个份张幅](.*?)的?([rR]18)?[色瑟涩
 
 @callsetu.handle()
 async def handle(bot: Bot, event: Event, state: T_State):
-    # print(state["_matched_groups"])
-    # print(event.get_user_id())
-    # print(event.message_type)
-    # print(event.sub_type)
-    # print(event.dict())
-    # if isinstance(event, GroupMessageEvent):
-    #     print(event.group_id)
-    # elif isinstance(event, PrivateMessageEvent):
-    #     print(event.sender.group_id)
-    # print(foo)
     config_getSetu: GetSetuConfig = GetSetuConfig()
-    info = state["_matched_groups"]
-    if info[0] != "":
-        if info[0] in digitalConversionDict.keys():
-            config_getSetu.toGetNum = int(digitalConversionDict[info[0]])
+    info = state["_matched"]
+    pattern = r"来(.*?)[点丶、个份张幅](.*?)的?([rR]18)?[色瑟涩䔼][图圖]"
+    res = re.findall(pattern, info[0])[0]  # 来一张r18色图 -> ['一', '', 'r18']
+    logger.debug(f"res: {res}")
+    if res[0] != "":
+        if res[0] in digitalConversionDict.keys():
+            config_getSetu.toGetNum = int(digitalConversionDict[res[0]])
         else:
-            if info[0].isdigit():
-                config_getSetu.toGetNum = int(info[0])
+            if res[0].isdigit():
+                config_getSetu.toGetNum = int(res[0])
             else:
-                await callsetu.send(MessageSegment.text('能不能用阿拉伯数字?'))
-                logger.info('非数字')
+                await callsetu.send(MessageSegment.text("请使用阿拉伯数字"))
+                logger.warnning("非数字")
                 return None
     else:  # 未指定数量,默认1
         config_getSetu.toGetNum = 1
-    config_getSetu.tags = [i for i in set(re.split(r"[,， ]", info[1])) if i != ""]
-    if info[2]:  # r18关键字
+    config_getSetu.tags = [i for i in set(re.split(r"[,， ]", res[1])) if i != ""]
+    if res[2]:  # r18关键字
         config_getSetu.level = 1
     await Setu(event, bot, config_getSetu).main()
 
